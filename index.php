@@ -90,14 +90,15 @@
 <script src="js/classie.js"></script>
 <script>
 	var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-		showRight = document.getElementsByClassName('menuRight')[0],
+		showRight = document.getElementsByClassName('menuRight'),
 		body = document.body;
 
-		showRight.onclick = function() {
+		for(var i=0; i < showRight.length; i++){
+		showRight[i].onclick = function() {
 		classie.toggle( this, 'active' );
 		classie.toggle( menuRight, 'cbp-spmenu-open' );
 		disableOther( 'showRight' );
-		};
+		};}
 
 </script>
 
