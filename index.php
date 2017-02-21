@@ -6,11 +6,36 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styleTest.css">
   <link rel="stylesheet" href="component.css">
+  <link rel="stylesheet" href="result-style.css">
+  <!--DONUT CHART-->
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+     <script type="text/javascript">
+          google.charts.load("current", {packages:["corechart"]});
+          google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Food Classes', 'Nutrition Value in gram'],
+              ['Calories'    ,    52],
+              ['Carbs   '    ,  13.8],
+              ['Sugar'       ,  10.4],
+              ['Fiber'       ,   2.4],
+              ['Protein'     ,   0.5]
+            ]);
+
+            var options = {
+              title: 'Apple Nutrition Chart',
+              pieHole: 0.3,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            chart.draw(data, options);
+        }
+     </script>
 	<?php
 		$servername = "localhost";
-		$username = "athirahnbn";
-		$password = "2c00l4u";
-		$dbname = "crops for future";
+		$username = "Ning";
+		$password = "ning3695";
+		$dbname = "crops for the future";
 	?>
 </head>
 
@@ -56,11 +81,26 @@
 	//if($_GET['name']==3){
 		echo "<h3>Grass</h3>";
 		for($x=0;$x<sizeof($grass); $x++)
-		echo "<a href='#'>$grass[$x]</a>";			
+		echo "<a class='fancy-btn open'>$grass[$x]</a>";			
 	//}
 	?>		
 	</nav>
 </div>
+
+<div class="modal-frame">
+        <div class="modal">
+		    <div class="modal-inset">
+      			<div class="button close"><i class="fa fa-close"></i></div>
+	
+                <div class="modal-body">
+				        <h3> Apples are one of the healthiest foods a person can eat !</h3>
+               
+      			        <div id="donutchart" style="width: 700px; height: 300px;"></div>
+      			</div>
+    		</div>
+  	    </div>
+    </div>
+<div class="modal-overlay"></div>
 
 <!--animated circular button code-->		
 <div class='selector'>
@@ -88,6 +128,7 @@
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="js/index.js"></script>
 <script src="js/classie.js"></script>
+<script src="js/result-index.js"></script>
 <script>
 	var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
 		showRight = document.getElementsByClassName('menuRight'),

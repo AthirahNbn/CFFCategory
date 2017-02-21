@@ -2,6 +2,7 @@
 .cbp-spmenu {
 	background: #47a3da;
 	position: fixed;
+	overflow-y:auto;
 }
 
 .cbp-spmenu h3 {
